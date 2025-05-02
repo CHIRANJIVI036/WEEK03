@@ -1,0 +1,35 @@
+#include <iostream>
+using namespace std;
+
+class Student {
+    int studentID;
+    string name;
+    int marks[5];
+public:
+    void input(int id, string n, int m[]) {
+        studentID = id;
+        name = n;
+        for (int i = 0; i < 5; i++) marks[i] = m[i];
+    }
+    float calculateAverage() {
+        int sum = 0;
+        for (int i = 0; i < 5; i++) sum += marks[i];
+        return sum / 5.0;
+    }
+    void displayDetails() {
+        cout << studentID << " " << name << " ";
+        for (int i = 0; i < 5; i++) cout << marks[i] << " ";
+        cout << "Average: " << calculateAverage() << endl;
+    }
+};
+
+int main() {
+    Student s[2];
+    int m1[5] = {80, 75, 90, 85, 88};
+    int m2[5] = {70, 65, 60, 75, 72};
+    s[0].input(1, "John", m1);
+    s[1].input(2, "Mary", m2);
+    s[0].displayDetails();
+    s[1].displayDetails();
+    return 0;
+}
