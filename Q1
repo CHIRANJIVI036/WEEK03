@@ -1,0 +1,32 @@
+#include <iostream>
+using namespace std;
+
+class BankAccount {
+    int accountNumber;
+    string accountHolderName;
+    double balance;
+public:
+    BankAccount(int accNo, string name, double bal) {
+        accountNumber = accNo;
+        accountHolderName = name;
+        balance = bal;
+    }
+    void deposit(double amount) {
+        balance += amount;
+    }
+    void withdraw(double amount) {
+        if (amount <= balance)
+            balance -= amount;
+    }
+    void display() {
+        cout << accountNumber << " " << accountHolderName << " " << balance << endl;
+    }
+};
+
+int main() {
+    BankAccount b1(1001, "Alice", 5000);
+    b1.deposit(2000);
+    b1.withdraw(1000);
+    b1.display();
+    return 0;
+}
