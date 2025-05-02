@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+
+class Product {
+    int productID;
+    string productName;
+    float price;
+    int quantity;
+public:
+    void setDetails(int id, string name, float p, int q) {
+        productID = id;
+        productName = name;
+        price = p;
+        quantity = q;
+    }
+    float calculateTotalPrice() {
+        return price * quantity;
+    }
+    void productDetails() {
+        cout << productID << " " << productName << " " << price << " " << quantity << " " << calculateTotalPrice() << endl;
+    }
+};
+
+int main() {
+    Product p[2];
+    p[0].setDetails(101, "Pen", 10.5, 3);
+    p[1].setDetails(102, "Notebook", 50.0, 2);
+    p[0].productDetails();
+    p[1].productDetails();
+    return 0;
+}
